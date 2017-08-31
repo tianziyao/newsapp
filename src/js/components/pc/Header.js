@@ -1,14 +1,18 @@
+
 import React, {Component} from 'react'
 /*引入栅格化布局*/
 import {Row, Col} from 'antd'
 /*导入菜单*/
 import {Menu, Icon} from 'antd'
+/*导入登入登出模块*/
+import Login from './Login'
+
 /*导入logo图片*/
 import logo from '../../../images/logo2.png'
 
+
 // const SubMenu = Menu.SubMenu
 // const MenuItemGroup = Menu.ItemGroup
-
 
 class PCHeader extends Component {
 
@@ -21,10 +25,7 @@ class PCHeader extends Component {
 
 	render() {
 		/*创建菜单控件*/
-		const menu = <Menu
-			selectedKeys={[this.state.current]}
-			mode="horizontal"
-		>
+		const menu = <Menu selectedKeys={[this.state.current]} mode="horizontal">
 			<Menu.Item key="a1"><Icon type="appstore"/>头条</Menu.Item>
 			<Menu.Item key="a2"><Icon type="appstore"/>社会</Menu.Item>
 			<Menu.Item key="a3"><Icon type="appstore"/>国内</Menu.Item>
@@ -34,6 +35,7 @@ class PCHeader extends Component {
 			<Menu.Item key="a7"><Icon type="appstore"/>科技</Menu.Item>
 			<Menu.Item key="a8"><Icon type="appstore"/>时尚</Menu.Item>
 		</Menu>
+
 		return <header>
 			{/*定义一行*/}
 			<Row>
@@ -42,11 +44,14 @@ class PCHeader extends Component {
 				<Col span={2}>
 					<a href="/" className="logo">
 						<img src={logo} alt="logo"/>
-						{/*<span>React News</span>*/}
 					</a>
 				</Col>
-				<Col span={16}>
+				<Col span={12}>
 					{menu}
+				</Col>
+				<Col span={1}/>
+				<Col span={2}>
+					<Login/>
 				</Col>
 				<Col span={2}/>
 			</Row>
