@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import '../css/PC.css'
+import '../css/Mobile.css'
+
 import PCIndex from './components/pc/Index'
 /*导入移动端适配模块*/
 import MediaQuery from 'react-responsive'
@@ -13,7 +15,7 @@ class App extends Component {
 				<MediaQuery query="(min-device-width: 1224px)">
 					<PCIndex/>
 				</MediaQuery>
-                {/*设备宽度小于1224px时*/}
+				{/*设备宽度小于1224px时*/}
 				<MediaQuery query="(max-device-width: 1224px)">
 					<MobileIndex/>
 				</MediaQuery>
