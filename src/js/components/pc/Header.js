@@ -6,8 +6,8 @@ import {Menu, Icon} from 'antd'
 /*导入logo图片*/
 import logo from '../../../images/logo2.png'
 
-const SubMenu = Menu.SubMenu
-const MenuItemGroup = Menu.ItemGroup
+// const SubMenu = Menu.SubMenu
+// const MenuItemGroup = Menu.ItemGroup
 
 
 class PCHeader extends Component {

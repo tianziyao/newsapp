@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import MobileCSS from '../../../css/Mobile.css'
+import '../../../css/Mobile.css'
 import logo from '../../../images/logo2.png'
 
 class MobileHeader extends Component {
     render() {
-        return <div>
-            <header className={MobileCSS.header}>
+        return <div id="mobile-header">
+            <header>
                 <img src={logo} alt="logo"/>
+                <span>News</span>
             </header>
         </div>
     }
