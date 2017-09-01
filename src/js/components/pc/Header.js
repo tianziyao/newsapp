@@ -5,7 +5,7 @@ import {Row, Col} from 'antd'
 /*导入菜单*/
 import {Menu, Icon} from 'antd'
 /*导入登入登出模块*/
-import Login from './Login'
+import Login from './HeaderLogin'
 
 /*导入logo图片*/
 import logo from '../../../images/logo2.png'
@@ -25,7 +25,7 @@ class PCHeader extends Component {
 
 	render() {
 		/*创建菜单控件*/
-		const menu = <Menu selectedKeys={[this.state.current]} mode="horizontal">
+		const MenuView = <Menu selectedKeys={[this.state.current]} mode="horizontal">
 			<Menu.Item key="a1"><Icon type="appstore"/>头条</Menu.Item>
 			<Menu.Item key="a2"><Icon type="appstore"/>社会</Menu.Item>
 			<Menu.Item key="a3"><Icon type="appstore"/>国内</Menu.Item>
@@ -47,7 +47,7 @@ class PCHeader extends Component {
 					</a>
 				</Col>
 				<Col span={12}>
-					{menu}
+					{MenuView}
 				</Col>
 				<Col span={1}/>
 				<Col span={2}>
