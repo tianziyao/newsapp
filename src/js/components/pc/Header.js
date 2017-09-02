@@ -25,7 +25,11 @@ class PCHeader extends Component {
 
 	render() {
 		/*创建菜单控件*/
-		const MenuView = <Menu selectedKeys={[this.state.current]} mode="horizontal">
+		const MenuView = <Menu
+			selectedKeys={[this.state.current]}
+			mode="horizontal"
+			onClick={this.handleMenuClick}
+		>
 			<Menu.Item key="a1"><Icon type="appstore"/>头条</Menu.Item>
 			<Menu.Item key="a2"><Icon type="appstore"/>社会</Menu.Item>
 			<Menu.Item key="a3"><Icon type="appstore"/>国内</Menu.Item>
@@ -34,6 +38,7 @@ class PCHeader extends Component {
 			<Menu.Item key="a6"><Icon type="appstore"/>体育</Menu.Item>
 			<Menu.Item key="a7"><Icon type="appstore"/>科技</Menu.Item>
 			<Menu.Item key="a8"><Icon type="appstore"/>时尚</Menu.Item>
+			<Menu.Item key="a9"><Login/></Menu.Item>
 		</Menu>
 
 		return <header>
@@ -46,17 +51,21 @@ class PCHeader extends Component {
 						<img src={logo} alt="logo"/>
 					</a>
 				</Col>
-				<Col span={12}>
+				<Col span={18}>
 					{MenuView}
-				</Col>
-				<Col span={1}/>
-				<Col span={2}>
-					<Login/>
 				</Col>
 				<Col span={2}/>
 			</Row>
 		</header>
 	}
+
+	/*点击menu时，切换被选中状态*/
+	handleMenuClick = (e) => {
+		this.setState({
+			current: e.key
+		})
+	}
+
 }
 
 export default PCHeader

@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Link} from 'react-router-dom'
 import {print} from '../public/Func'
+import Network from '../public/Network'
 
 import ModalLogin from './ModalLogin'
 import {
 	Button,
-	Menu,
 	Icon,
 } from 'antd'
+import register from "../../../registerServiceWorker";
 
 
 class HeaderLogin extends Component {
@@ -54,24 +55,50 @@ class HeaderLogin extends Component {
 		/*验证输入的合法性*/
 		form.validateFields((err, values) => {
 			if (err) {
-				print('验证不通过', values)
+				print(['验证不通过', values])
 				return
 			}
 			/*重置字段*/
 			form.resetFields()
 			/*隐藏模态视图*/
 			this.setState({visible: false})
-			print('验证通过', values)
+			print('验证通过')
+			print(values)
+			Network('register', {method: "GET", params: values}, this.registerFail, this.registerSuccess)
 		})
 	}
 
+	registerSuccess = (resp) => {
+		print('注册成功')
+		print(resp)
+		this.setState({
+			visible: false
+		})
+	}
+
+	registerFail = (error) => {
+		print('注册失败')
+		print(error)
+	}
+
+	/*处理表单提交事件*/
 	handleSubmit = () => {
-			print('提交表单')
+		print('提交表单')
+	}
+
+	/*处理复选框点击事件*/
+	handleChange = (e) => {
+		if (e.target.checked === false) {
+			print('清除用户信息')
+		}
+		else {
+			print('存储用户信息')
+		}
 	}
 
 	render() {
 		/*已登录界面*/
-		const LogoutView = <Menu.Item key="logOut" className="register">
+		const LogoutView = <div>
 			<Button type="primary" htmlType="button">
 				{this.state.nickName}
 			</Button>
@@ -83,12 +110,10 @@ class HeaderLogin extends Component {
 			<Button type="ghost" htmlType="button">
 				退出
 			</Button>
-		</Menu.Item>
+		</div>
 
 		/*未登录界面*/
-		const LoginView = <Menu.Item key="register" className="register">
-			<div onClick={this.showTabsView}><Icon type="appstore"/>登录/注册</div>
-		</Menu.Item>
+		const LoginView = <div onClick={this.showTabsView}><Icon type="appstore"/>登录/注册</div>
 
 		/**
 		 * 登录和注册的对话框视图
@@ -100,14 +125,15 @@ class HeaderLogin extends Component {
 			visible={this.state.visible}
 			onCancel={this.handleCancel}
 			onOk={this.handleOk}
-			handleSubmit={this.handleSubmit}
+			onSubmit={this.handleSubmit}
+			onChange={this.handleChange}
 		/>
 
 		return (
-			<Menu mode="horizontal">
+			<div>
 				{this.state.isLogined ? LogoutView : LoginView}
 				{ModalView}
-			</Menu>
+			</div>
 		)
 	}
 }
