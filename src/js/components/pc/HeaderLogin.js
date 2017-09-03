@@ -3,12 +3,11 @@ import {BrowserRouter as Router, Link} from 'react-router-dom'
 import {print} from '../public/Func'
 import Network from '../public/Network'
 
-import ModalLogin from './ModalLogin'
+import ModalLogin from '../public/ModalLogin'
 import {
 	Button,
 	Icon,
 } from 'antd'
-import register from "../../../registerServiceWorker";
 
 
 class HeaderLogin extends Component {

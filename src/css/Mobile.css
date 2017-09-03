@@ -1,27 +1,38 @@
 html {
-  font-size: 50px;
+  font-size: 44px;
 }
 
 #mobile-header {
-  flex: 1;
+  /*flex: 1;*/
   background-color: #f6f6f6;
 }
 
 #mobile-header header {
   border-bottom: 1px solid #2db7f5;
-  padding-left: 10px;
+  padding-left: 20px;
+  height: 1rem;
 }
 
 #mobile-header header img {
-  height: 50px;
+  height: 0.7rem;
+  margin-top: 0.15rem;
 }
 
-#mobile-header header span {
-  font-size: 20px;
-  padding-left: 20px;
+#mobile-header .icon {
+  font-size: 0.5rem;
+  position: relative;
+  float: right;
+  margin-right: 20px;
+  margin-top: 0.25rem;
   color: #2db7f5;
-  vertical-align: top;
-  margin-top: 10px;
-  height: 50px;
-  line-height: 50px;
 }
+
+/*#mobile-header header span {*/
+  /*font-size: 20px;*/
+  /*padding-left: 20px;*/
+  /*color: #2db7f5;*/
+  /*vertical-align: top;*/
+  /*margin-top: 10px;*/
+  /*height: 50px;*/
+  /*line-height: 50px;*/
+/*}*/

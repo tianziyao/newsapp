@@ -18,9 +18,10 @@
 
 .login-form {
   position: relative;
-  width: 300px;
+  width: 260px;
+  min-width: 260px;
   margin-left: 50%;
-  left: -150px;
+  left: -130px;
   margin-top: 50px;
 }
 .login-form-forgot {

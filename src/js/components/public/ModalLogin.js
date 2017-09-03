@@ -1,6 +1,6 @@
 import React from 'react'
 import {Modal, Form, Input, Tabs, Icon, Checkbox} from 'antd'
-import {print} from '../public/Func'
+import {print} from './Func'
 
 const FormItem = Form.Item
 const TabPane = Tabs.TabPane
