@@ -5,13 +5,16 @@ import {print} from './Func'
 const FormItem = Form.Item
 const TabPane = Tabs.TabPane
 
+let tabsOnChangeCallBack = (e) => {}
+
 class ModalLoginForm extends React.Component {
 
-	handleTabsOnChange = () => {
+	handleTabsOnChange = (e) => {
 		print('标签页被切换')
 		this.setState({
 			isRegiser: !this.state.isRegiser
 		})
+		tabsOnChangeCallBack(e)
 	}
 
 	constructor() {
@@ -29,7 +32,8 @@ class ModalLoginForm extends React.Component {
 			onOk,
 			form,
 			onSubmit,
-			onChange
+			checkBoxOnChange,
+			tabsOnChange
 		} = this.props
 		// print(this.props)
 		// const visible = this.props.visible
@@ -37,9 +41,9 @@ class ModalLoginForm extends React.Component {
 		// const onOk = this.props.onOk
 		// const form = this.props.form
 		// const onSubmit = this.props.onSubmit
-		// const onChange = this.props.onChange
+		// const checkBoxOnChange = this.props.checkBoxOnChange
 		const {getFieldDecorator} = form
-
+		tabsOnChangeCallBack = tabsOnChange
 		/*登录表单*/
 		const LoginView = <Form onSubmit={onSubmit} className="login-form">
 			<FormItem>
@@ -61,7 +65,7 @@ class ModalLoginForm extends React.Component {
 					valuePropName: 'checked',
 					initialValue: false,
 				})(
-					<Checkbox onChange={onChange}>记住我</Checkbox>
+					<Checkbox onChange={checkBoxOnChange}>记住我</Checkbox>
 				)}
 				<a className="login-form-forgot" href="">忘记密码</a>
 			</FormItem>

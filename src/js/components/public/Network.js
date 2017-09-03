@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import {message, Modal} from 'antd'
+import {print} from './Func'
 // require('es6-promise').polyfill()
 
 const errorMessages = (res) => `${res.status} ${res.statusText}`
@@ -86,7 +87,8 @@ function Network(action, options, fail, success) {
 	if (opts && opts.method === "GET" && opts['params']) {
 		mergeUrl = mergeUrl + toQueryString(opts['params'])
 	}
-	return fetch(mergeUrl, opts)
+	print(mergeUrl)
+	fetch(mergeUrl, opts)
 		.then(check401)
 		.then(check404)
 		.then(jsonParse)

@@ -24,6 +24,17 @@ class HeaderLogin extends Component {
 		}
 	}
 
+	/*组件将要加载时，判断是否已登录*/
+	componentWillMount() {
+		if (localStorage.getItem('isLogined')) {
+			this.setState({
+				isLogined: true,
+				nickName: 'Jon',
+				userId: 110
+			})
+		}
+	}
+
 	/*保存回调的from组件*/
 	saveFormRef = (form) => {
 		print('获取到form组件')
@@ -63,20 +74,28 @@ class HeaderLogin extends Component {
 			this.setState({visible: false})
 			print('验证通过')
 			print(values)
-			Network('register', {method: "GET", params: values}, this.registerFail, this.registerSuccess)
+			Network(this.state.action, {method: "GET", params: values}, this.networkFail, this.networkSuccess)
 		})
 	}
 
-	registerSuccess = (resp) => {
-		print('注册成功')
+	networkSuccess = (resp) => {
+		print('请求成功')
 		print(resp)
 		this.setState({
-			visible: false
+			visible: false,
 		})
+		if (this.state.action === 'login') {
+			this.setState({
+				isLogined: true,
+				nickName: 'Jon',
+				userId: 110
+			})
+			localStorage.setItem('isLogined', true)
+		}
 	}
 
-	registerFail = (error) => {
-		print('注册失败')
+	networkFail = (error) => {
+		print('请求失败')
 		print(error)
 	}
 
@@ -86,7 +105,7 @@ class HeaderLogin extends Component {
 	}
 
 	/*处理复选框点击事件*/
-	handleChange = (e) => {
+	handleCheckBoxOnChange = (e) => {
 		if (e.target.checked === false) {
 			print('清除用户信息')
 		}
@@ -95,9 +114,27 @@ class HeaderLogin extends Component {
 		}
 	}
 
+	/*处理标签页被切换*/
+	handleTabsOnChange = (e) => {
+		this.setState({
+			action: e
+		})
+	}
+
+	handleLogout = () => {
+		print('退出登录')
+		this.setState({
+			isLogined: false,
+			nickName: '',
+			userId: 0
+		})
+		localStorage.removeItem('isLogined')
+	}
+
+
 	render() {
 		/*已登录界面*/
-		const LogoutView = <div>
+		const LogoutView = <div className="logout">
 			<Button type="primary" htmlType="button">
 				{this.state.nickName}
 			</Button>
@@ -106,7 +143,7 @@ class HeaderLogin extends Component {
 					<Link to="/">个人中心</Link>
 				</Router>
 			</Button>
-			<Button type="ghost" htmlType="button">
+			<Button type="ghost" htmlType="button" onClick={this.handleLogout}>
 				退出
 			</Button>
 		</div>
@@ -125,7 +162,8 @@ class HeaderLogin extends Component {
 			onCancel={this.handleCancel}
 			onOk={this.handleOk}
 			onSubmit={this.handleSubmit}
-			onChange={this.handleChange}
+			checkBoxOnChange={this.handleCheckBoxOnChange}
+			tabsOnChange={this.handleTabsOnChange}
 		/>
 
 		return (

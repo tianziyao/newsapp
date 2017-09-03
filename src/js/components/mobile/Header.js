@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import Network from '../public/Network'
 import ModalLogin from '../public/ModalLogin'
-import {Link} from 'react-router-dom'
-import {Icon} from 'antd'
+import {Link, Router} from 'react-router-dom'
+import {Icon, Menu, Dropdown} from 'antd'
 import logo from '../../../images/logo2.png'
 import {print} from '../public/Func'
 
@@ -17,6 +17,16 @@ class MobileHeader extends Component {
 			isLogined: false,
 			nickName: '',
 			userId: 0
+		}
+	}
+
+	componentWillMount() {
+		if (localStorage.getItem('isLogined')) {
+			this.setState({
+				isLogined: true,
+				nickName: 'Jon',
+				userId: 110
+			})
 		}
 	}
 
@@ -59,20 +69,29 @@ class MobileHeader extends Component {
 			this.setState({visible: false})
 			print('验证通过')
 			print(values)
-			Network('register', {method: "GET", params: values}, this.registerFail, this.registerSuccess)
+			Network(this.state.action, {method: "GET", params: values}, this.registerFail, this.registerSuccess)
 		})
 	}
 
 	registerSuccess = (resp) => {
-		print('注册成功')
+		print('请求成功')
 		print(resp)
 		this.setState({
 			visible: false
 		})
+		if (this.state.action === 'login') {
+			print('登录成功')
+			this.setState({
+				isLogined: true,
+				nickName: 'Jon',
+				userId: 110
+			})
+			localStorage.setItem('isLogined', true)
+		}
 	}
 
 	registerFail = (error) => {
-		print('注册失败')
+		print('请求失败')
 		print(error)
 	}
 
@@ -82,7 +101,7 @@ class MobileHeader extends Component {
 	}
 
 	/*处理复选框点击事件*/
-	handleChange = (e) => {
+	handleCheckBoxOnChange = (e) => {
 		if (e.target.checked === false) {
 			print('清除用户信息')
 		}
@@ -91,11 +110,39 @@ class MobileHeader extends Component {
 		}
 	}
 
+	/*处理标签页被切换*/
+	handleTabsOnChange = (e) => {
+		this.setState({
+			action: e
+		})
+	}
+
+	handleLogout = () => {
+		print('退出登录')
+		this.setState({
+			isLogined: false,
+			nickName: '',
+			userId: 0
+		})
+		localStorage.removeItem('isLogined')
+	}
+
 	render() {
 
-		const LoginView = <Link to="/">
-			<Icon type="inbox" className="icon"/>
-		</Link>
+		const menu = <Menu>
+			<Menu.Item>
+				个人中心
+			</Menu.Item>
+			<Menu.Item>
+				<div onClick={this.handleLogout}>退出登录</div>
+			</Menu.Item>
+		</Menu>
+
+		const LoginView = <div className="dropdown">
+			<Dropdown overlay={menu} trigger={['click']}>
+				<a>{this.state.nickName}<Icon type="down" /></a>
+			</Dropdown>
+		</div>
 
 		const LogoutView = <Icon type="setting" className="icon" onClick={this.showTabsView}/>
 
@@ -105,7 +152,8 @@ class MobileHeader extends Component {
 			onCancel={this.handleCancel}
 			onOk={this.handleOk}
 			onSubmit={this.handleSubmit}
-			onChange={this.handleChange}
+			checkBoxOnChange={this.handleCheckBoxOnChange}
+			tabsOnChange={this.handleTabsOnChange}
 		/>
 
 		return <div id="mobile-header">

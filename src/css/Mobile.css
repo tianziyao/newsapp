@@ -27,6 +27,16 @@ html {
   color: #2db7f5;
 }
 
+#mobile-header .dropdown {
+  font-size: 0.3rem;
+  position: relative;
+  float: right;
+  margin-right: 20px;
+  margin-top: 0.3rem;
+  color: #2db7f5;
+}
+
+
 /*#mobile-header header span {*/
   /*font-size: 20px;*/
   /*padding-left: 20px;*/

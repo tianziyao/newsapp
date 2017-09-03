@@ -38,7 +38,7 @@ class PCHeader extends Component {
 			<Menu.Item key="a6"><Icon type="appstore"/>体育</Menu.Item>
 			<Menu.Item key="a7"><Icon type="appstore"/>科技</Menu.Item>
 			<Menu.Item key="a8"><Icon type="appstore"/>时尚</Menu.Item>
-			<Menu.Item key="a9"><Login/></Menu.Item>
+			<Menu.Item key="a9" style={{float: 'right'}}><Login/></Menu.Item>
 		</Menu>
 
 		return <header>
