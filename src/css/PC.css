@@ -37,3 +37,40 @@
 .logout button {
   margin-left: 10px;
 }
+
+.left-container {
+  padding-top: 20px;
+}
+
+.left-container .carousel {
+  width: 400px;
+  float: left;
+  margin-top: 10px;
+}
+
+.left-container .carousel .slick-slide {
+  text-align: center;
+  height: 200px;
+  line-height: 200px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.left-container .carousel .slick-slide h3 {
+  color: #fff;
+}
+
+.left-container-tabs {
+  padding-left: 20px;
+}
+
+.news-block {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.news-block li div {
+  padding-bottom: 7px;
+  color: #666666;
+  font-size: 13px;
+}

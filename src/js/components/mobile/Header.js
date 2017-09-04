@@ -2,9 +2,10 @@ import React, {Component} from 'react'
 import Network from '../public/Network'
 import ModalLogin from '../public/ModalLogin'
 import {Link, Router} from 'react-router-dom'
-import {Icon, Menu, Dropdown} from 'antd'
+import {Icon, Menu, Dropdown, Tabs} from 'antd'
 import logo from '../../../images/logo2.png'
 import {print} from '../public/Func'
+
 
 class MobileHeader extends Component {
 

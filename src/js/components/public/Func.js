@@ -1,6 +1,12 @@
 function print(any) {
-	console.log(any)
+  console.log(any)
 }
 
-export { print }
+function guard({isTrue: isTrue, doSome: doSome}) {
+  if (doSome) {
+    doSome()
+  }
+}
+
+export {print, guard}
 // export default print

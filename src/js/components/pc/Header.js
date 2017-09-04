@@ -9,7 +9,7 @@ import Login from './HeaderLogin'
 
 /*导入logo图片*/
 import logo from '../../../images/logo2.png'
-
+import {print} from '../public/Func'
 
 // const SubMenu = Menu.SubMenu
 // const MenuItemGroup = Menu.ItemGroup
@@ -64,8 +64,8 @@ class PCHeader extends Component {
 		this.setState({
 			current: e.key
 		})
+		print('当前的item是'+e.key)
 	}
-
 }
 
 export default PCHeader
