@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
-import {Tabs} from 'antd'
+import MobileList from './List'
+
+import {Tabs, Carousel} from 'antd'
+import {print, ConvertPinyin} from "../public/Func";
 
 const TabPane = Tabs.TabPane
 
@@ -10,8 +13,21 @@ class HeaderTabs extends Component {
       onChange
     } = this.props
 
+    const settings = {
+      autoplay: true,
+      dots: true
+    }
+
     const makeTabPane = (tab, key) => (
-      <TabPane tab={tab} key={key}/>
+      <TabPane tab={tab} key={key}>
+        <Carousel {...settings} className="mobile-carousel">
+          <div><h3>1</h3></div>
+          <div><h3>2</h3></div>
+          <div><h3>3</h3></div>
+          <div><h3>4</h3></div>
+        </Carousel>
+        <MobileList type={tab === '头条' ? 'top' : ConvertPinyin(tab)} count="20"/>
+      </TabPane>
     )
 
     const makeMultiTabPane = (tabs) => {

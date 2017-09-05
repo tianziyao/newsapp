@@ -40,15 +40,15 @@
 
 .left-container {
   padding-top: 20px;
+  float: left;
 }
 
-.left-container .carousel {
+.carousel {
   width: 400px;
-  float: left;
   margin-top: 10px;
 }
 
-.left-container .carousel .slick-slide {
+.carousel .slick-slide {
   text-align: center;
   height: 200px;
   line-height: 200px;
@@ -56,21 +56,32 @@
   overflow: hidden;
 }
 
-.left-container .carousel .slick-slide h3 {
+.carousel .slick-slide h3 {
   color: #fff;
 }
 
-.left-container-tabs {
+.container-tabs {
   padding-left: 20px;
+  margin-top: 20px;
+  width: 500px;
 }
+
 
 .news-block {
   margin-right: 5px;
-  margin-bottom: 5px;
+  margin-left: 5px;
 }
 
 .news-block li div {
   padding-bottom: 7px;
   color: #666666;
   font-size: 13px;
+}
+
+.image-card {
+  width: 20%;
+}
+
+.image-card img {
+  width: 10px;
 }

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Card} from 'antd'
 import {Link, BrowserRouter} from 'react-router-dom'
 import Network from '../public/Network'
-import {print, guard} from '../public/Func'
+import {print} from '../public/Func'
 
 class PCNewsBlock extends Component {
 

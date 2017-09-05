@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Tabs, Row, Col, Carousel} from 'antd'
 import PCNewsBlock from './NewsBlock'
+import PCNewsImageBlock from './NewsImageBlock'
 
 const TabPane = Tabs.TabPane
 
@@ -13,7 +14,7 @@ class PCNewContainer extends Component {
     }
     return <div>
       <Row>
-        <Col span={2}></Col>
+        <Col span={2}/>
         <Col span={20} className="container">
           <div className="left-container">
             <Carousel {...settings} className="carousel">
@@ -22,16 +23,18 @@ class PCNewContainer extends Component {
               <div><h3>3</h3></div>
               <div><h3>4</h3></div>
             </Carousel>
-            <Tabs className="left-container-tabs">
-              <TabPane tab="最新" key="1"><PCNewsBlock type="top" count="10"/></TabPane>
-              <TabPane tab="国内" key="2"><PCNewsBlock type="guonei" count="10"/></TabPane>
-              <TabPane tab="国际" key="3"><PCNewsBlock type="guoji" count="10"/></TabPane>
-              <TabPane tab="科技" key="4"><PCNewsBlock type="keji" count="10"/></TabPane>
-            </Tabs>
-
+            <PCNewsImageBlock count="6" lineCount={3} type="guoji" width="400px" title="国际"/>
+          </div>
+          <Tabs className="container-tabs">
+            <TabPane tab="最新" key="1"><PCNewsBlock type="top" count="19"/></TabPane>
+            <TabPane tab="科技" key="4"><PCNewsBlock type="keji" count="19"/></TabPane>
+          </Tabs>
+          <div>
+            <PCNewsImageBlock count="18" lineCount={9} type="shehui" width="100%" title="社会"/>
+            <PCNewsImageBlock count="9" lineCount={9} type="yule" width="100%" title="娱乐"/>
           </div>
         </Col>
-        <Col span={2}></Col>
+        <Col span={2}/>
       </Row>
     </div>
   }
