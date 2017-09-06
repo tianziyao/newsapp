@@ -6,6 +6,7 @@ import PCIndex from './components/pc/Index'
 import PCNewsDetail from './components/pc/NewsDetail'
 
 import MobileIndex from './components/mobile/Index'
+import MobileNewsDetail from './components/mobile/NewsDetail'
 
 /*导入移动端适配模块*/
 import MediaQuery from 'react-responsive'
@@ -30,7 +31,12 @@ class App extends Component {
 				</MediaQuery>
 				{/*设备宽度小于1224px时*/}
 				<MediaQuery query="(max-device-width: 1224px)">
-					<MobileIndex/>
+					<BrowserRouter>
+						<Switch>
+							<Route exact path="/" component={MobileIndex}/>
+							<Route path="/detail/:uniquekey" component={MobileNewsDetail}/>
+						</Switch>
+					</BrowserRouter>
 				</MediaQuery>
 			</div>
 		)

@@ -109,6 +109,40 @@ html {
   color: #fff;
 }
 
+.mobile-news-detail-container {
+  padding: 10px;
+}
+
+.mobile-news-detail-container h1 {
+  font-size: 14px;
+}
+
+.mobile-news-detail-container .article-src-time {
+  margin-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.mobile-news-detail-container #content .txt {
+  font-size: 13px;
+  line-height: 22px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.mobile-news-detail-container #content .img {
+  padding: 5px;
+  border: 1px solid #f2f2f2;
+  margin-bottom: 10px;
+}
+
+.ant-back-top {
+  position: relative;
+  left: 85%;
+}
+
 /*#mobile-header header span {*/
   /*font-size: 20px;*/
   /*padding-left: 20px;*/

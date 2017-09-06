@@ -85,3 +85,49 @@
 .image-card img {
   width: 10px;
 }
+
+.news-detail-container div {
+  /*padding: 10px;*/
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.news-detail-container div h1 {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.news-detail-container div .article-src-time {
+  font-size: 13px;
+  margin-top: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.news-detail-container div #content {
+  font-size: 13px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+}
+
+.news-detail-container div .txt {
+  font-size: 14px;
+  line-height: 25px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.news-detail-container div .img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 70%;
+  height: auto;
+  padding: 10px;
+  margin-left: 50%;
+  right: 35%;
+  position: relative;
+  border: 1px solid #f2f2f2;
+}

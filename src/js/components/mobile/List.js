@@ -39,7 +39,7 @@ class MobileList extends Component {
     const newList = news.map((item, index) => {
       return <div key={index} className="new-item">
         <BrowserRouter>
-        <Link to={'detail/' + item.uniquekey} target="_blank">
+        <Link to={'detail/' + item.uniquekey}>
           <div className="new-list-image">
             <img src={item.thumbnail_pic_s} alt={item.title}/>
           </div>

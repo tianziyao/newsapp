@@ -2,11 +2,11 @@ import React, {Component} from 'react'
 import {Row, Col, BackTop} from 'antd'
 import {print} from '../public/Func'
 import Network from '../public/Network'
-import PCHeader from './Header'
-import PCFooter from './Footer'
-import PCNewsImageBlock from './NewsImageBlock'
+import MobileHeader from './Header'
+import MobileFooter from './Footer'
+import MobileNewsImageBlock from '../pc/NewsImageBlock'
 
-class PCNewsDetail extends Component {
+class MobileNewsDetail extends Component {
 
   constructor() {
     super()
@@ -22,7 +22,7 @@ class PCNewsDetail extends Component {
 
   networkSuccess = (news) => {
     this.setState({
-			newsItem: news
+      newsItem: news
     })
     document.title = news.title + ' | Power By React'
     print(news)
@@ -35,18 +35,11 @@ class PCNewsDetail extends Component {
   render() {
     return (
       <div>
-        <PCHeader/>
-        <Row>
-          <Col span={2}/>
-          <Col span={14} className="news-detail-container">
+        <MobileHeader/>
+        <Row className="mobile-news-detail-container">
             <div dangerouslySetInnerHTML={{__html: this.state.newsItem.pagecontent}}></div>
-          </Col>
-          <Col span={6}>
-            <PCNewsImageBlock count="40" lineCount={2} type="guoji" width="100%" title="相关新闻"/>
-          </Col>
-          <Col span={2}/>
         </Row>
-        <PCFooter/>
+        <MobileFooter/>
         <BackTop/>
       </div>
     )
@@ -54,4 +47,4 @@ class PCNewsDetail extends Component {
 
 }
 
-export default PCNewsDetail
+export default MobileNewsDetail
