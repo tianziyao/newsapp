@@ -91,6 +91,7 @@ class HeaderLogin extends Component {
 				userId: 110
 			})
 			localStorage.setItem('isLogined', true)
+      localStorage.setItem('userId', 110)
 		}
 	}
 
