@@ -71,7 +71,7 @@ class PCNewsImageBlock extends Component {
     const newList = news.map((item, index) => {
       return <div key={index} style={gridStyle}>
         <BrowserRouter>
-        <Link to={'detail/' + item.uniquekey} target="_blank">
+        <Link to={this.props.path + item.uniquekey} target="_blank">
           <div>
             <img src={item.thumbnail_pic_s} alt="" style={styleImage}/>
           </div>

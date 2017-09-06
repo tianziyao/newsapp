@@ -44,7 +44,7 @@ class PCNewsDetail extends Component {
             <Comments uniquekey={this.props.match.params.uniquekey} className="news-detail-comments"/>
           </Col>
           <Col span={6}>
-            <PCNewsImageBlock count="40" lineCount={2} type="guoji" width="100%" title="相关新闻"/>
+            <PCNewsImageBlock count="40" lineCount={2} type="guoji" width="100%" title="相关新闻" path=""/>
           </Col>
           <Col span={2}/>
         </Row>

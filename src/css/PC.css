@@ -17,6 +17,10 @@
 
 .footer {
   text-align: center;
+  height: 200px;
+  line-height: 200px;
+  margin-top: 80px;
+  border-top: 1px solid #f2f2f2;
 }
 
 .login-form {
@@ -66,10 +70,10 @@
   width: 500px;
 }
 
-
 .news-block {
   margin-right: 5px;
   margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 .news-block li div {
@@ -130,4 +134,29 @@
   right: 35%;
   position: relative;
   border: 1px solid #f2f2f2;
+}
+
+.comment .ant-col-24 {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: 1px solid #f2f2f2;
+  padding-top: 30px;
+}
+
+.comment .ant-col-24 .ant-card {
+  margin-bottom: 10px;
+}
+
+.comment .ant-col-24 .ant-card .ant-card-head .ant-card-head-title {
+  font-size: 13px;
+}
+
+.comment .ant-col-24 form {
+  margin-top: 20px;
+  padding-top: 10px;
+  /*border-top: 1px solid #f2f2f2;*/
+}
+
+.comment-button {
+  float: right;
 }

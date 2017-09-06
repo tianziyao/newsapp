@@ -31,7 +31,7 @@ class Comments extends Component {
   networkSuccess = (news) => {
     print(news)
     this.setState({
-      comments: news.slice(0, 10)
+      comments: news.slice(news.length - 5, news.length)
     })
   }
 
@@ -72,7 +72,7 @@ class Comments extends Component {
                   <Input type={'textarea'} placeholder="说点什么吧~"></Input>
                 )}
               </FormItem>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" className="comment-button">
                 提交评论
               </Button>
             </Form>
@@ -104,8 +104,10 @@ class Comments extends Component {
 
   commentSuccess = (any) => {
     print(any)
-    message.success('评论成功')
-  }
+		this.props.form.resetFields()
+    this.componentDidMount()
+		message.success('评论成功')
+	}
 
   handleSubmit = (e) => {
     print('提交评论')
@@ -117,7 +119,6 @@ class Comments extends Component {
     else {
       this.submitComment(userid)
     }
-
   }
 }
 
