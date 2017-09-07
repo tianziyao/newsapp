@@ -88,6 +88,7 @@ class MobileHeader extends Component {
 				userId: 110
 			})
 			localStorage.setItem('isLogined', true)
+      localStorage.setItem('userId', 110)
 		}
 	}
 
@@ -126,6 +127,7 @@ class MobileHeader extends Component {
 			userId: 0
 		})
 		localStorage.removeItem('isLogined')
+    localStorage.removeItem('userId')
 	}
 
 	render() {

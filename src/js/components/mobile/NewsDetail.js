@@ -4,7 +4,7 @@ import {print} from '../public/Func'
 import Network from '../public/Network'
 import MobileHeader from './Header'
 import MobileFooter from './Footer'
-import MobileNewsImageBlock from '../pc/NewsImageBlock'
+import Comments from '../public/Comments'
 
 class MobileNewsDetail extends Component {
 
@@ -16,7 +16,7 @@ class MobileNewsDetail extends Component {
   }
 
   componentDidMount() {
-    const uniquekey = this.props.match.params.iduniquekey
+    const uniquekey = this.props.match.params.uniquekey
     Network('getnewsitem', {method: 'GET', params: {uniquekey:uniquekey}}, this.networkFail, this.networkSuccess)
   }
 
@@ -37,7 +37,9 @@ class MobileNewsDetail extends Component {
       <div>
         <MobileHeader/>
         <Row className="mobile-news-detail-container">
-            <div dangerouslySetInnerHTML={{__html: this.state.newsItem.pagecontent}}></div>
+          <div dangerouslySetInnerHTML={{__html: this.state.newsItem.pagecontent}}></div>
+          <hr/>
+          <Comments/>
         </Row>
         <MobileFooter/>
         <BackTop/>
