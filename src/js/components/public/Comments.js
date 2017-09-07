@@ -9,8 +9,8 @@ const openNotification = () => {
   notification.open({
     message: '请先登录~',
     description: '登录以后才可以发表评论~',
-  });
-};
+  })
+}
 
 class Comments extends Component {
 
@@ -75,11 +75,41 @@ class Comments extends Component {
               <Button type="primary" htmlType="submit" className="comment-button">
                 提交评论
               </Button>
+              <Button type="primary" htmlType="button" className="collect-button" onClick={this.submitCollect}>
+                收藏该文章
+              </Button>
             </Form>
           </Col>
         </Row>
       </div>
     )
+  }
+
+  submitCollect = (e) => {
+    print('收藏文章')
+    e.preventDefault()
+    const userid = localStorage.getItem('userId')
+    if (userid === null) {
+      notification.open({
+        message: '请先登录~',
+        description: '登录以后才可以收藏文章~',
+      })
+    }
+    else {
+      const params = {
+        userid: userid,
+        uniquekey: this.props.uniquekey
+      }
+      Network('uc', {method: "GET", params: params}, this.collectFail, this.collectSuccess)
+    }
+  }
+
+  collectSuccess = () => {
+    message.success('收藏成功')
+  }
+
+  collectFail = () => {
+    message.error('收藏失败，请稍后重试')
   }
 
   submitComment = (userid) => {

@@ -160,3 +160,7 @@
 .comment-button {
   float: right;
 }
+.collect-button {
+  float: right;
+  margin-right: 20px;
+}
